@@ -22,30 +22,46 @@ It also utilises nomiclabs/hardhat-etherscan a Hardhat plugin for integration wi
 ## Prerequisites
 
 - [Metamask wallet](https://metamask.io/) to store your tokens and enable web3 transactions.
-- [Morallis Account](https://admin.moralis.io/dapps) for dApp Hosting Services.
+-  Exported Private Metamask key
 - [Polygonscan Account](https://polygonscan.com/) to view and interact with the blockchain 
 - [MATIC ERC-20tokens](https://faucet.polygon.technology/) on Mumbai Test Network
 
 
 ## Installation
 
+
+Getting started:
+- Clone this repo
+- Obtain your public Metamask wallet address
+- Goto the Polygon [Faucet](https://faucet.polygon.technology/) and use your public wallet address in the faucet to obtain some MATIC on the Mumbai testnet.
+- Add the Mumbai Test network to your Metamask Wallet - see network details below.
+
+```
+Mumbai Testnet
+https://rpc-mumbai.maticvigil.com/
+80001
+MATIC
+https://polygonscan.com
+
+- Sign up to [polyscan.com]9https://polygonscan.com/) and create an API KEY.
+
 Populate your local .env file with he following variables
 
 ```
-POLYGON_MUMBAI = 'https://rpc-mumbai.maticvigil.com'
-PRIVATE_KEY = <your private metamask wallet key - never share this key!>
-API_KEY = <polygonscan key created in the polyscan front end>
+POLYGON_MUMBAI = 'https://rpc-mumbai.maticvigil.com'  
+PRIVATE_KEY = <your private metamask wallet key - NEVER share this key or commit to code!>  
+API_KEY = <Your Polyscan API KEY>  
 ```
 
 Prepare the project locally. 
 
 ```
-npm install
-npx hardhat clean
-npx hardhat compile
-npx hardhat run scripts/deployMedium.js --network mumbai
+npm install  
+npx hardhat clean  
+npx hardhat compile  
+npx hardhat run scripts/deployMedium.js --network mumbai  
 ```
-Once the contract is deployed successfully it will return the contract address. You then need to verify the contract using the contract address and the constructor arguments.
+Once the contract is deployed successfully it will return the contract address. You can then verify the returned address as per below.  
 
 ```
 npx hardhat verify <0x ..contract address> --network mumbai  "Medium Blog" "BLOG" "10000000000"
@@ -53,17 +69,9 @@ npx hardhat verify <0x ..contract address> --network mumbai  "Medium Blog" "BLOG
 
 ## Usage
 
-Once the contract has been deployed you can interact with the contract via blockchain interface front end such has Polyscan or directly via your application.
+After verification test interaction with your contract by searching for your unique contract id returned in previous deploy and verify steps.
 
-
-
-
-
-
-Uses:
-
-- nomiclabs/hardhat-etherscan - Hardhat plugin for integration with Etherscan's contract verification service.
-
+At this stage you can interact with your contract using web3 on mumbai polyscan by searching for your contract address, selecting the Contract (with green dot) and then view, read or write to the contract.  
 
 
 Core files:
@@ -76,9 +84,6 @@ Deploy script:
 
 Config:
 - hardhat.config.js
-
-
-
 
 
 
