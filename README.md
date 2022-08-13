@@ -61,7 +61,7 @@ npx hardhat clean
 npx hardhat compile  
 npx hardhat run scripts/deployMedium.js --network mumbai  
 ```
-Once the contract is deployed successfully it will return the contract address. You can then verify the returned address as per below.  
+Once the contract is deployed successfully it will return the contract address. You then need to verify the contract using the contract address and the constructor arguments.
 
 ```
 npx hardhat verify <0x ..contract address> --network mumbai  "Medium Blog" "BLOG" "10000000000"
