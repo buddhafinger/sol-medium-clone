@@ -51,7 +51,7 @@ constructor(
 // memory uri = where the metadata for this token is being stored.
 // payable = is public payable function becasue we need to pay the associated fees to the owner (deployer)
 
-function SafeMint(address to, string memory uri) public payable {
+function safeMint(address to, string memory uri) public payable {
 
     require(msg.value >= fees, "NOT ENOUGH MATIC");
 
